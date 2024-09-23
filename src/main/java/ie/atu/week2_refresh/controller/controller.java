@@ -24,6 +24,14 @@ public class controller {
         functions.addProduct(product);
         return "Added product successfully";
     }
+    @PutMapping("/update")
+    public String UpdateProduct(@RequestBody Product product){
+        return functions.UpdateProduct(product);
+    }
+    @PutMapping("/delete")
+    public String DeleteProduct(@RequestBody Product product){
+        return functions.deleteProduct(product);
+    }
 
 
 }

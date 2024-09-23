@@ -16,10 +16,28 @@ public class service {
         return Product;
     }
 
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         Product.add(product);
     }
 
+    public String UpdateProduct(Product product) {
+        for (int i = 0; i < Product.size(); i++) {
+            if (Product.get(i).getId() == product.getId()) {
+                Product.get(i).setPrice(product.getPrice());
+                Product.get(i).setName(product.getName());
+                return "Product has been updated successfully";
+            }
+        }
+        return "Could not find product";
+    }
 
-
+    public String deleteProduct(Product product) {
+        for (int i = 0; i < Product.size(); i++) {
+            if (Product.get(i).getId() == product.getId()) {
+                Product.remove(i);
+                return "Deleted it successfully";
+            }
+        }
+        return "Did not delete";
+    }
 }

@@ -1,6 +1,7 @@
 package ie.atu.week2_refresh.controller;
 
 import ie.atu.week2_refresh.Entity.Product;
+import ie.atu.week2_refresh.service.service;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,16 +12,16 @@ import java.util.List;
 @RequestMapping("/Product")
 public class controller {
 
-    private List<Product> productList;
+    private service functions;
 
     @GetMapping("/GET")
     public List<Product> GetProduct(){
-        return productList;
+        return functions.GetProduct();
     }
 
     @PostMapping("/add")
     public String AddProduct(@RequestBody Product product){
-        productList.add(product);
+        functions.addProduct(product);
         return "Added product successfully";
     }
 
